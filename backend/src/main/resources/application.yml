@@ -1,0 +1,32 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/event_booking_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:ChangeMe_Use_A_Strong_Secret_At_Least_32_Chars}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  admin:
+    name: ${EVENTSPHERE_ADMIN_NAME:Admin}
+    email: ${EVENTSPHERE_ADMIN_EMAIL:admin@eventsphere.com}
+    password: ${EVENTSPHERE_ADMIN_PASSWORD:Admin@12345}
+
+logging:
+  level:
+    org.springframework.security: INFO
+    com.eventsphere: INFO

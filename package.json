@@ -1,0 +1,15 @@
+{
+  "name": "eventsphere",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EventSphere - Full-Stack Event Booking Platform",
+  "scripts": {
+    "build:frontend": "npm --prefix frontend run build",
+    "build": "npm run build:frontend && cd backend && mvn clean package -DskipTests",
+    "start": "cd backend && mvn spring-boot:run",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "cd backend && mvn spring-boot:run",
+    "clean": "cd backend && mvn clean"
+  }
+}
+
